@@ -1,6 +1,4 @@
-# USAGE
-# python detect_drowsiness.py --shape-predictor shape_predictor_68_face_landmarks.dat
-# python detect_drowsiness.py --shape-predictor shape_predictor_68_face_landmarks.dat --alarm alarm.wav
+
 
 # import the necessary packages
 from scipy.spatial import distance as dist
@@ -35,15 +33,6 @@ def eye_aspect_ratio(eye):
 	# return the eye aspect ratio
 	return ear
  
-# construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--shape-predictor", required=True,
-	help="path to facial landmark predictor")
-ap.add_argument("-a", "--alarm", type=str, default="",
-	help="path alarm .WAV file")
-ap.add_argument("-w", "--webcam", type=int, default=0,
-	help="index of webcam on system")
-args = vars(ap.parse_args())
  
 # define two constants, one for the eye aspect ratio to indicate
 # blink and then a second constant for the number of consecutive
