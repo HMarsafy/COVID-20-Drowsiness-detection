@@ -38,3 +38,7 @@ The camera detects the drowsiness and sends a signal to the speakers to alert th
 #### GUI:
 - Hamed
 - Ali
+#### Documentation:
+- Hassan 
+- Joseph
+- Hamed
