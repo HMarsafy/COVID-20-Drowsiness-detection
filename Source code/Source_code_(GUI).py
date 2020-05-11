@@ -12,7 +12,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QStyleFactory, Q
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
-stop_driving_work_alone=False
 stop_thread = False
 stop_thread_face = False
 face_detected = False
@@ -73,7 +72,7 @@ class App(QWidget):
 def stop_driving(path):
     for i in range(0, 3):
         playsound.playsound(path)
-    stop_driving_work_alone=False
+    
 
 
 def face_disappear(path):
@@ -156,7 +155,7 @@ def backend():
         global face_detected
         if not hold:
             if stop_driving_counter == 3:
-                stop_driving_work_alone=True
+                
                 t1 = Thread(target=stop_driving, args=('stop_driving.mp3',))
                 t1.deamon = True
                 t1.start()
@@ -207,7 +206,7 @@ def backend():
                     # then sound the alarm
                     if COUNTER >= EYE_AR_CONSEC_FRAMES:
                         # if the alarm is not on, turn it on
-                        if not ALARM_ON and stop_driving_work_alone ==False:
+                        if not ALARM_ON:
                             stop_thread = False
                             ALARM_ON = True
                             t3 = Thread(target=alarm_sound, args=('closing_eye.mp3',))
