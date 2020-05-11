@@ -13,6 +13,16 @@ import dlib
 stop_thread = False
 stop_thread_face = False
 face_detected = False
+#stop_thread_driving = False
+
+
+
+def stop_driving(path):
+	n=2
+	for i in range(0,n):
+		playsound.playsound(path)
+		
+
 
 
 def face_disappear(path):
@@ -60,6 +70,7 @@ FACE_CONSEC_FRAMES = 60
 # indicate if the alarm is going off
 COUNTER = 0
 face_counter = 0
+stop_driving_counter=0
 ALARM_ON = False
 FACE_DISAPPEAR_ALARM = False
 
@@ -83,6 +94,13 @@ while True:
     # grab the frame from the threaded video file stream, resize
     # it, and convert it to grayscale
     # channels)
+    ########################################
+    if stop_driving_counter == 3:
+    	 t1 = Thread(target=stop_driving, args=('stop_driving.mp3',))
+         t1.deamon = True
+         t1.start()
+         stop_driving_counter = 0       
+    ########################################
     frame = vs.read()
     frame = imutils.resize(frame, width=900)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -133,6 +151,7 @@ while True:
                     stop_thread = False
                     ALARM_ON = True
                     t = Thread(target=alarm_sound, args=('alarm.wav',))
+                    stop_driving_counter+=1
                     t.deamon = True
                     t.start()
 
