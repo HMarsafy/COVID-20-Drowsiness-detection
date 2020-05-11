@@ -27,4 +27,14 @@ The camera detects the drowsiness and sends a signal to the speakers to alert th
 - Joseph Samir Edward Farahat            
 - Hamed Abdelraheem Fathallah Khaleel 
 - Hassan Mohamed Hassan Elmarsafy          
-- Ali Amr Farouq Abo Elamaim                       
+- Ali Amr Farouq Abo Elamaim
+
+
+### Members contributions
+#### Source code:
+- Ahmed 
+- Joseph 
+- Hassan
+#### GUI:
+- Hamed
+- Ali
