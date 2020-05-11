@@ -127,7 +127,7 @@ while True:
                 stop_thread_face = False
                 FACE_DISAPPEAR_ALARM = True
 		##create a thread to turn on the alarm when the the face_counter is greater than 60
-                t = Thread(target=face_disappear, args=('alarm.wav',))
+                t = Thread(target=face_disappear, args=('face_disappearence.mp3',))
                 t.deamon = True
                 t.start()
 
@@ -159,7 +159,7 @@ while True:
                 if not ALARM_ON:
                     stop_thread = False
                     ALARM_ON = True
-                    t = Thread(target=alarm_sound, args=('alarm.wav',))
+                    t = Thread(target=alarm_sound, args=('closing_eye.mp3',))
                     stop_driving_counter+=1
                     t.deamon = True
                     t.start()
