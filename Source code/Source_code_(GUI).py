@@ -71,7 +71,7 @@ class App(QWidget):
 
 
 def stop_driving(path):
-    for i in range(0, 2):
+    for i in range(0, 3):
         playsound.playsound(path)
 
 
@@ -177,7 +177,7 @@ def backend():
                     if not FACE_DISAPPEAR_ALARM:
                         stop_thread_face = False
                         FACE_DISAPPEAR_ALARM = True
-                        t2 = Thread(target=face_disappear, args=('alarm.mp3',))
+                        t2 = Thread(target=face_disappear, args=('face_disapperence.mp3',))
                         t2.deamon = True
                         t2.start()
 
@@ -208,7 +208,7 @@ def backend():
                         if not ALARM_ON:
                             stop_thread = False
                             ALARM_ON = True
-                            t3 = Thread(target=alarm_sound, args=('alarm.mp3',))
+                            t3 = Thread(target=alarm_sound, args=('closing_eye.mp3',))
                             stop_driving_counter += 1
                             t3.deamon = True
                             t3.start()
