@@ -1,4 +1,4 @@
-
+# import needed libraries 
 import cv2
 from scipy.spatial import distance as dist
 from imutils.video import VideoStream
@@ -12,9 +12,11 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QStyleFactory, QVBoxLayout, QMessageBox
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
-
+# flag to stop the alarm of the closing eye.
 stop_thread = False
+# flag to stop the alarm of face disappearence
 stop_thread_face = False
+# flag to face detection.
 face_detected = False
 hold = False
 exit_flag = False
@@ -70,12 +72,14 @@ class App(QWidget):
             event.ignore()
 
 
+# function that is responsible of start the "stop driving" alarm.
+
 def stop_driving(path):
     for i in range(0, 3):
         playsound.playsound(path)
     
 
-
+# function that is responsible of start the "face disappearence" alarm.
 def face_disappear(path):
     while True:
         playsound.playsound(path)
@@ -86,6 +90,7 @@ def face_disappear(path):
         if stop_thread_face:
             break
 
+# function that is responsible of start the "eye closing" alarm
 
 def alarm_sound(path):
     while True:
@@ -96,7 +101,7 @@ def alarm_sound(path):
         if stop_thread:
             break
 
-
+# function that is responsible of caculating eye aspect ratio .
 def eye_aspect_ratio(eye):
     # compute the euclidean distances between the two sets of
     # vertical eye landmarks (x, y)-coordinates
@@ -119,16 +124,36 @@ def backend():
     # blink and then a second constant for the number of consecutive
     # frames the eye must be below the threshold for to set off the
     # alarm
+    
+    # eye aspect ratio threshold
+
     EYE_AR_THRESH = 0.3
+    
+    # number of Consecutive frames to start the "eye closing" alarm
     EYE_AR_CONSEC_FRAMES = 15
+    # number of Consecutive frames to start the "face disappearence" alarm
     FACE_CONSEC_FRAMES = 30
 
     # initialize the frame counter as well as a boolean used to
     # indicate if the alarm is going off
+    
+    
+# initialize the frame counter of  Consecutive frames as well as a boolean used to
+# indicate if the alarm is going off
     COUNTER = 0
+    
+# initialize the frame counter of  Consecutive frames as well as a boolean used to
+# indicate if the alarm of face disappearence is going off
     face_counter = 0
+    
+# initialize the frame counter of Consecutive closing eye times as well as a boolean used to
+# indicate if the alarm is going of    
     stop_driving_counter = 0
+    
+# flag to know the situation of the alarm right now.    
     ALARM_ON = False
+    
+# flag to know the situation of the alarm right now    
     FACE_DISAPPEAR_ALARM = False
 
     # initialize dlib's face detector (HOG-based) and then create
@@ -162,23 +187,32 @@ def backend():
                 t1.start()
                 stop_driving_counter = 0
                 ########################################
+                
+        # take frame         
             frame = vs.read()
             frame = imutils.resize(frame, width=900)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-            # detect faces in the grayscale frame
+        # detect faces in the grayscale frame
             rects = detector(gray, 0)
+          # if detect faces in the frame
             if len(rects) != 0:
                 face_detected = True
                 face_counter = 0
                 FACE_DISAPPEAR_ALARM = False
                 stop_thread_face = True
+                
+                
+             # else  if there is no faces in the frame but it was detected before.   
             elif len(rects) == 0 and face_detected == True:
                 face_counter += 1
+                
+             # if the  Consecutive frames is greater than 30   
                 if face_counter > FACE_CONSEC_FRAMES:
                     if not FACE_DISAPPEAR_ALARM:
                         stop_thread_face = False
                         FACE_DISAPPEAR_ALARM = True
+                    # create a thread to turn on the alarm when the the face_counter is greater than 30    
                         t2 = Thread(target=face_disappear, args=('face_disapperence.mp3',))
                         t2.deamon = True
                         t2.start()
