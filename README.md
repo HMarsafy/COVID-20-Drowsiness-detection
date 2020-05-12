@@ -20,7 +20,9 @@ You can run the project by:
 - dowloading the zip file : https://drive.google.com/file/d/1f2CBrl8nstbGrq9-Je9YaPbcK7LJuaNj/view?fbclid=IwAR3RsDBq55U3T6JWGmPXIqIwVszwJzJTG0V2ZaI2Dz4GzEOE-QkG21ay2JE
 - then unzip and run the execuatble file by clicking on "main" file. 
 - Two windows will open : the camera and the gui. This means that the project is now working and ready to use. 
-- Demo video : https://www.youtube.com/watch?v=ifc5E81iufI&t=1s&fbclid=IwAR2oJpeNpKxzr5S6eAVdQbzTVS01-8VU-6HEF3F1IFnxxZ4CcafzjU-731E   
+
+### Demo Video 
+- https://www.youtube.com/watch?v=ifc5E81iufI&t=1s&fbclid=IwAR2oJpeNpKxzr5S6eAVdQbzTVS01-8VU-6HEF3F1IFnxxZ4CcafzjU-731E   
 
 ### Project Members
 -	Ahmed Mohamed Mohamed Gamal         
