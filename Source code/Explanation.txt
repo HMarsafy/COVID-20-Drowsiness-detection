@@ -1,1 +1,1 @@
-This folder contains the source code used for the project
+This folder contains the source code used for this project
