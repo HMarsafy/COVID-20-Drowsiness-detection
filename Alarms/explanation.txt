@@ -1,1 +1,1 @@
-this folder is the folder that contains the audio files used in this project.
+This folder is the folder that contains the audio files used in this project.
