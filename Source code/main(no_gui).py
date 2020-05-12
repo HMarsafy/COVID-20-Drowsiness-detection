@@ -59,9 +59,9 @@ def eye_aspect_ratio(eye):
 # eye aspect ratio threshold
 EYE_AR_THRESH = 0.3
 # number of Consecutive frames to start the "eye closing" alarm
-EYE_AR_CONSEC_FRAMES = 30
+EYE_AR_CONSEC_FRAMES = 15
 # number of Consecutive frames to start the "face disappearence" alarm
-FACE_CONSEC_FRAMES = 60
+FACE_CONSEC_FRAMES = 30
 
 # initialize the frame counter of  Consecutive frames as well as a boolean used to
 # indicate if the alarm is going off
@@ -74,7 +74,7 @@ face_counter = 0
 stop_driving_counter=0
 #flag to know the situation of the alarm right now.
 ALARM_ON = False
-#flag to know the situation of the alarm rught now.
+#flag to know the situation of the alarm right now.
 FACE_DISAPPEAR_ALARM = False
 
 # initialize dlib's face detector (HOG-based) and then create
