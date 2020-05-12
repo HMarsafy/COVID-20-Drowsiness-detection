@@ -12,13 +12,14 @@ No one knows the exact moment when sleep comes over their body. Falling asleep a
 
 Driver drowsiness detection is a car safety technology which alerts the driver when he gets drowsy.
 The camera detects the drowsiness and sends a signal to the speakers to alert the driver.
+If the driver sleeps 3 three times, another alarm is sent to ask the driver to stop his car and take a nap.
 
-### Project Implementation Plan
+### How to run the project
 
-1.	Install the camera to detect the face and extract the eye region.
-2.	Create an algorithm to detect the drowsiness.
-3.	Compute the eye aspect ratio to determine if the eyes are closed.
-4.	Take action when the driver shows signs of drowsiness (send an alert).
+1- You can run the project by dowloading the zip file :
+   then unzip and run the execuatble file 
+   
+2-Or run and edit the code on python. You will need to download the following libraries
 
 
 
