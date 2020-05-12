@@ -121,12 +121,12 @@ while True:
     #if there is no faces in the frame but it was detected before.
     elif len(rects) == 0 and face_detected==True:
         face_counter += 1
-	#if the  Consecutive frames is greater than 60
+	#if the  Consecutive frames is greater than 30
         if face_counter > FACE_CONSEC_FRAMES:
             if not FACE_DISAPPEAR_ALARM:
                 stop_thread_face = False
                 FACE_DISAPPEAR_ALARM = True
-		##create a thread to turn on the alarm when the the face_counter is greater than 60
+		##create a thread to turn on the alarm when the the face_counter is greater than 30
                 t = Thread(target=face_disappear, args=('face_disappearence.mp3',))
                 t.deamon = True
                 t.start()
