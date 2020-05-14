@@ -41,6 +41,7 @@ You can run the project by:
 - Ahmed 
 - Joseph 
 - Hassan
+- Ali
 #### GUI:
 - Hamed
 - Ali
